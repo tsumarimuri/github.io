@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width">
+        <link rel="stylesheet" href="css\bootstrap.css">
+        <link rel="stylesheet" href="stylesheet.css">
+        <title>過去の記事</title>
+        <style>
+             .index_img{
+                width:auto;
+                height: 100%;
+                
+                
+                
+             }
+             .head_container{
+                display: block;
+                display: flex;
+                flex-direction: row;
+                text-decoration: none;
+                color:black;
+                width:55%;
+                margin:0 auto;
+                align-items: stretch;
+                gap:4vh;
+                border-top: 1px solid silver;
+                border-bottom:1px solid silver;
+                height:180px;
+                overflow: hidden;
+             }
+             .main_container{
+                
+                display: block;
+                display: flex;
+                flex-direction: row;
+                text-decoration: none;
+                color:black;
+                width:55%;
+                margin:0 auto;
+                align-items: stretch;
+                gap:4vh;
+                height:180px;
+                overflow: hidden;
+                border-bottom:1px solid silver;
+             }
+             .box-2{
+                padding-top:20px;
+                padding-bottom: 20px;
+                padding-left: 5%;
+                height:140px;
+             }
+             .block-1{
+                flex-grow:1;
+             }
+             .block-2{
+                flex-grow:5;
+                padding-right:5%;
+             }
+             
+             .box-1{
+                overflow: hidden;
+             }
+             @media screen and (max-width: 820px){
+                  .head_container{
+                    display: block;
+                    display: flex;
+                    flex-direction: row;
+                    text-decoration: none;
+                    color:black;
+                    margin:0 auto;
+                    gap:4vh;
+                    border-top: 1px solid silver;
+                    border-bottom:1px solid silver;
+                    height: 180px;
+                    overflow: hidden;
+                    width:90%;
+                    align-items: stretch;
+                  }
+                  .main_container{
+                
+                    display: block;
+                    display: flex;
+                    flex-direction: row;
+                    text-decoration: none;
+                    color:black;
+                    width:90%;
+                    margin:0 auto;
+                    align-items: stretch;
+                    gap:4vh;
+                    height:180px;
+                    overflow: hidden;
+                    border-bottom:1px solid silver;
+                 }
+                  
+             }
+             .nes{
+                text-align: center;
+                display:none;
+
+             }
+             @media(max-width:480px){
+                .body{
+                    display:none;
+                    
+                }
+                .nes{
+                    display: block;
+                }
+             }
+
+                
+             
+        </style>
+    </head>
+    <header>
+      <nav class="navbar navbar-expand-lg bg-body-tertiary  custom-nuvbar" >
+                <div class="container-fluid padd" >
+                  <a class="navbar-brand" href="index.html" style="color:white; ">なぶば</a>
+                  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                  </button>
+                  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                      <li class="nav-item" >
+                        <a class="nav-link active" aria-current="page" href="past.html" style="color:white; padding-left:47px;">過去の記事</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link" href="profile.html" style="color:white;padding-left:47px;">管理者プロフィール</a>
+                      </li>
+                      
+                  </div>
+                </div>
+              </nav>
+    </header>
+    <body>
+        
+            
+              
+        
+        <h3 class="nes">※この画面はpc専用です。</h3>
+        <div class="body">
+        <a href="index.html" class="head_container">
+            <div class="block-1">
+                <div class="box-2">
+                    <img src="img\b202211.jpg" class="index_img">
+                </div>
+            </div>
+            <div class="block-2">
+                <div class="box-1">
+                    <h3>サーバーサイド開発でもLiveServerを用いてライブリロードを行う方法</h3>
+                    <p>VSCodeの拡張機能であるLiveServerを使用することでエディタで書いたコードをリアルタイムでブラウザに反映させることができます。
+                    </p>
+                </div>
+
+        
+            </div>
+            
+        </a>
+        <!--aタグのクラスは一番上なら"head_container"、それ以外なら"main_container"-->
+        <!--heightはpx指定、書き換え必須-->
+        </div>
+        
+        <script src="jquery-3.7.1.min.js"></script>
+        <script src="js\bootstrap.bundle.min.js"></script>
+    </body>
+</html>

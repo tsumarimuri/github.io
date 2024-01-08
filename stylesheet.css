@@ -1,0 +1,131 @@
+
+.bold{
+    font-weight: bold;
+    background: linear-gradient(transparent 40%, #ffee01d5 30%);
+    
+    line-height: 15px;
+}
+.index{
+    border: 1px dotted silver;
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-top: 80px;
+    
+}
+#index_first{
+    text-align: center;
+    margin-bottom: 20px;
+}
+.body_index{
+    width:45%;
+    margin:0 auto;
+    line-height: 35px;
+}
+.index_list{
+    padding-left: 40px;
+    padding-bottom: 20px;
+}
+.list{
+    color:black;
+    text-decoration: none;
+    line-height: 40px;
+}
+.list:hover {
+    text-decoration: underline;
+}
+@media only screen and (max-width:480px){
+    .body_index{
+        width:90%;
+        line-height:35px;
+    }
+    
+}
+.responsive-image{
+    width:100%;
+    height:auto;
+    padding-top: 30px;
+    padding-bottom:30px;
+}
+
+.foot{
+    margin-top: 75px;
+    text-align: center;
+    margin-bottom:100px;
+}
+.foot a{
+    font-weight:bold;
+}
+@media screen and (min-width:769px) {
+        
+    .padd{
+      padding-left: 10%;
+    }
+  
+    }
+    .custom-nuvbar{
+      background-color: rgb(102, 57, 206)!important;
+      
+    }
+    
+    .navbar-toggler .navbar-toggler-icon {
+      background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255,255,255,1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
+    }
+    .navbar-toggler{
+      border-color: white;
+      border-width: 2px;
+      color:white;
+    }
+    .custom-dropdown{
+      background-color: rgb(232, 218, 238);
+    }
+    
+    
+    .small-image{
+        display: block;
+        width:65%;
+        height: auto;
+        padding-top: 30px;
+        padding-bottom:30px;
+    }
+    header{
+        padding-bottom: 50px;
+    }
+    body{
+        margin: 0px!important;
+    }
+    .small-image-2{
+        display:block;
+        width:40%;
+        height:auto;
+        padding-top: 30px;
+        padding-bottom:30px;
+    }
+
+    /*.min-subject{
+        display:block;
+        border-left:  10px solid  orange;
+        padding-left: 10px;
+    }
+    */
+        
+    .subject{
+        border-bottom: solid 4px;
+        border-image: linear-gradient(to right, orange, red); 
+        border-image-slice: 1; 
+        margin-top: 100px;
+    
+    }
+     
+    .min-subject {
+        border-left: solid 10px;
+        border-image: linear-gradient(to bottom, orange, red); 
+        border-image-slice: 1; 
+        
+        padding-left:15px;
+      }
+      
+     
+      
+      
+  
+

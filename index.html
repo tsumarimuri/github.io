@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+<head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width">
+        <title>サーバーサイド開発でもLiveServerを用いてライブリロードを行う方法</title>
+        <link rel="stylesheet" href="css\bootstrap.css">
+        <link rel="stylesheet" href="stylesheet.css">
+        <link rel="icon" href="cloud.ico">
+        <link rel="apple-touch-icon" sizes="180x180" href="14-190519-think.png">
+        
+        
+</head>
+<header>
+<nav class="navbar navbar-expand-lg bg-body-tertiary  custom-nuvbar" >
+    <div class="container-fluid padd" >
+      <a class="navbar-brand" href="index.html" style="color:white; ">なぶば</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item" >
+            <a class="nav-link active" aria-current="page" href="past.html" style="color:white; padding-left:47px;">過去の記事</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="profile.html" style="color:white;padding-left:47px;">管理者プロフィール</a>
+          </li>
+          
+            
+          
+          
+          
+        </ul>
+        
+        </div>
+       </div>
+      </nav>
+</header>
+      
+
+<body>
+  
+    <div class="body_index">
+    <div class="titlename" >
+        <h1 id="headtitle">サーバーサイド開発でもLiveServerを用いてライブリロードを行う方法</h1>
+    </div>
+    <p>VSCodeの拡張機能であるLiveServerを使用することでエディタで書いたコードをリアルタイムでブラウザに反映させることができます。（この機能をライブリロードといいます）<br>
+    これにより、<span class=bold>コードを更新する度にブラウザ側でリロードする必要がなくなり、</span>スムーズなweb製作ができるようになります。<p></p>
+    本来であればフロントエンド開発用の機能なのですが、
+    ブラウザ側に拡張機能を入れることによりpythonなどのサーバーサイド言語開発でもこの機能を使うことができます。<p></p>この記事ではフロントエンド用、バッグエンド用に分けて解説
+    しているので用途に合った方法を選んでください。ただ、<span class=bold>バックエンド用の機能を使うにはフロントエンド用の方もインストール必須です。</span><br>
+    <p></p>なお、今回は機能の導入の解説のみであり、専門用語や、なぜこれが可能なのかといった仕組みの解説は省いているため、そちらは別の記事を参照してください。<br>
+    （知らなくても普通に使えますが一応）
+    </p>
+    <div class="index">
+       <h3 id="index_first">目次</h3>
+       <div class="index_list">
+       <a href="#frontend" class="list" id="in1">フロントエンド開発でライブリロードを使う方法</a><br>
+       <a href="#backend" class="list" id="in2">バックエンド開発でライブリロードを使う方法</a><br>
+       <span class=min>・<a href="#chrome" class="list" id="in3">Chrome拡張機能のLiveServerをインストール</a><br>
+       ・<a href="#localserver" class="list">ローカルサーバーの起動</a><br>・<a href="#adress" class="list">必要なアドレスの入力</a></span><br>
+       <a href="#plus" class="list list_last">補足</a><br></div>
+    </div>
+    <h2 id="frontend" class="subject">フロントエンド開発でライブリロードを使う方法</h2>
+    <p>まずはhtml,cssの開発でライブリロードを使えるようにしていきます。<br>（すでにフロントエンドは知ってるよという方はこちら→
+        <a href="#backend">バッグエンド開発でライブリロードを使う方法</a>）
+    <br>まず、VSCodeの<span class=bold>自動保存機能をON</span>にして下さい<br>自動保存機能はやり方を知っている、または既に有効にしている方がほとんどだと思うので、ここでは割愛します。<br>
+    （知らないよという人用に、ほかの方のサイトのリンクを貼っておきます→<a href="https://www.javadrive.jp/vscode/setting/index2.html">エディターの自動保存の設定</a>）<br>
+    次に、拡張機能「Live Server」をインストールします。左側のメニューからVSCodeの拡張機能検索ページに行き、検索ボックスに「LiveServer」と入力します。<br>
+    一番上に出てきたやつを選択したのち、インストール。
+    <img src="img\github- Visual Studio Code 2024_01_05 10_20_22.png" class="responsive-image">
+    
+    あとはブラウザに表示させたいhtmlファイルを開いて、右下の「Go Live」と書いてあるところをクリックすれば勝手にブラウザに飛ばされます。
+    <img src="img\github1 - Visual Studio Code 2024_01_05 10_22_15.png" class="responsive-image">
+    これですでにライブリロードが使える状態なので、試しにHTMLコードを変更してみてください。
+    </p>
+    <h2 id="backend" class="subject">バックエンド開発でライブリロードを使う方法</h2>
+    ここからは、バックエンド開発でライブリロードを使う方法です。今回は、Pythonを例にします。他の言語でもできるように説明していきます。</p><p>まず、こちらもVSCodeの自動保存機能はONにしておく必要があります。
+    <br>また、前提として、<span class=bold>自動リロード（オートリロード）を有効にして開発をする必要があります。</span>これは、ソースコードの更新があったときに、サーバーを再起動しなくてもブラウザに変更が反映される機能です。
+    （ブラウザの更新は必要です）<br>
+    デフォルトでONになっているフレームワークもあるようです。（PythonのDjangoなどがそうです）
+    方法は言語や使用するフレームワークによって違うと思うのでそれぞれの方法で行ってください。<br>
+    例えば、PythonのFlaskフレームワークなら、ローカルサーバー起動時にデバッグモードにすれば、勝手に自動リロードがONになります。
+    <img src="img\コマンド プロンプト 2024_01_07 12_35_10.png" class="small-image">
+    ↑ Flaskではコマンド実行時に「--debugger --reload」とつける
+    <h3 id="chrome" class="min-subject">Chrome拡張機能のLiveServerWebExtensionのインストール</h3>
+    まず、メニューから拡張機能検索ページを開き、「Live Server」を検索します。（またはインストール済み一覧から「Live Server」を選択）<br>一番上に出てくるLiveServerを選択したのち、
+        真ん中らへんに「Live Server for server side pages like PHP.Check Here」と書いてあるので、「Check Here」をクリックします。（画像参照）
+        <img src="img\index.html - github1 - Visual Studio Code 2024_01_07 12_53_00.png" class="responsive-image">
+    開かれたページの右のほうにあるリンクをクリックして、chrome拡張機能をインストールします。（firefox対応verもありますので、必要でしたら下の方のStore Linksというところからインストールしてください）
+    <img src="img\無題 - Google Chrome 2024_01_07 12_53_11.png" class="responsive-image">
+    これで、必要なものはすべて整いました。
+    <h3 id="localserver" class="min-subject">ローカルサーバーの起動</h3>
+    まず、VSCodeで開発中のフォルダを開きます。その後、右下のGoLiveをクリック。
+    <img src="img\github1 - Visual Studio Code 2024_01_05 10_22_15.png" class="responsive-image">
+    画像のようなページに飛ばされると思います。開いたページは消さないでください。<p></p>
+    次に、普段通りコマンドプロンプトなどからローカルサーバーを起動します。先ほどのページとは別に、指定されたurlにアクセスしてページを開いてください。
+    <br>まだこの時点ではライブリロードが有効になっていません。
+    <h3 id="adress" class="min-subject">必要な2つのアドレスの入力</h3>
+    最後にブラウザ側の拡張機能の設定を行います。ブラウザの拡張機能欄から先ほどインストールしたLive Server Web Extensionを開きます。
+    <img src="img\スクリーンショット 2024-01-08 202123.png" class="small-image-2">
+    チェックボックスをONにした後,その下に2つのアドレスを入力します。下の画像を参考に入力してください。<br>下がGoLiveから飛ばされたページのurl。
+    上が普通にローカルサーバーを起動してアクセスしたページのurlです。<br>入力が完了したら、「Apply」ボタンを押してください。
+    <img src="img\スクリーンショット 2024-01-08 210411.png" class="responsive-image">
+    これでライブリロードが可能になっていると思います。
+
+
+    <h2 id="plus" class="subject">補足</h2>
+    現在この機能では言語の違いや使ってるフレームワークの違いなどで挙動がおかしくなることがあるようです。改善方法については各自でお調べください。<p></p>
+    また、pythonでルーティングの指定に応じてhtmlファイルを返す場合などに、自動リロード起動下でもhtmlファイル内への変更にはLiveServerが反応しないなどの弱点もあります。（解決方法はあるかもしれませんが、私にはわかりません）
+    <br>ここら辺は、LiveServerの仕組みを調べ、開発内容によって使い分ける必要があると思います。
+    <br>
+    </div>
+    <div class="foot">
+        <a class="btn btn-warning" href="#headtitle" role="button">ページトップに戻る</a>
+    </div>
+    
+
+<script src="jquery-3.7.1.min.js"></script>
+<script src="js\bootstrap.bundle.min.js"></script>
+<script>
+    window.addEventListener('DOMContentLoaded', function () {
+        if (window.innerWidth <= 600) {
+            document.querySelector('#in1').textContent = 'フロントエンド開発用';
+        }
+    });
+    window.addEventListener('DOMContentLoaded', function () {
+        if (window.innerWidth <= 600) {
+            document.querySelector('#in2').textContent = 'バッグエンド開発用';
+        }
+    });
+    window.addEventListener('DOMContentLoaded', function () {
+        if (window.innerWidth <= 600) {
+            document.querySelector('#in3').textContent = 'Chrome拡張機能';
+        }
+    });
+
+
+
+</script>
+
+
+</body>
+
+</html>
