@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>bootstrapを使用すると意図せずhタグのフォントが変わる問題の確実な解決法（bootstrapを使用する際の注意とデメリット）</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="css\bootstrap.css">
+        <link rel="stylesheet" href="stylesheet.css">
+    </head>
+    <header>
+      <nav class="navbar navbar-expand-lg bg-body-tertiary  custom-nuvbar" >
+          <div class="container-fluid padd" >
+            <a class="navbar-brand" href="index.html" style="color:white; ">なぶば</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item" >
+                  <a class="nav-link active" aria-current="page" href="past.html" style="color:white; padding-left:47px;">過去の記事</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="profile.html" style="color:white;padding-left:47px;">管理者プロフィール</a>
+                </li>
+                
+                  
+                
+                
+                
+              </ul>
+              
+              </div>
+             </div>
+            </nav>
+      </header>
+    <body>
+        <div class="body_index">
+            <div class="titlename">
+                <h1 id="headtitle">bootstrapを使用するとhタグのフォントが勝手に変わる問題の解決法</h1>
+            </div>
+           突然ですがこちらの2つの画像をご覧ください。(文章の内容は関係ないです)
+           <img src="img\サーバーサイド開発でもLiveServerを用いてライブリロードを行う方法 - Google Chrome 2024_01_14 17_57_50.png" style="border:1px solid silver;" class="ex_image">
+           <img src="img\サーバーサイド開発でもLiveServerを用いてライブリロードを行う方法 - Google Chrome 2024_01_14 18_00_21.png" style="border:1px solid silver;" class="ex_image">
+           見出しの文字にご注目ください。左の画像は私が記事の作成のために本文をほぼhtmlだけを使って記述したものです。
+           右の画像はそこに、linkタグにbootstrapと書き込んで
+           bootstrapをインポートした後です。bootstrapを使って作ったヘッダーを導入しようとしたのです。（bootstrapってなんぞやって方はググってください）<br>
+           「おわかりいただけたでしょうか」<br>
+           <span class="bold">見出しのフォントが変わって明らかに違和感があります。</span>
+           変わる前の「美しい」感じのフォントからなんだか全体的に角ばった（語彙力皆無）感じのフォントに
+           なってしまいました。<br>どうやらbootstrapを使うとなると見出し（hタグ）のデフォルトフォントが勝手に変わるようです。（本文の行間なども若干変わっています）<br>
+           そしてこれを直す方法が案外難しい。単純にcssで上書きするだけでは解決しない場合もあります。<br>
+           というわけで今回はbootstrapを導入すると意図しない変化が起こる問題を解決するいくつかの方法をhタグを具体例に紹介していきます。最小の変化で済ませる方法から、
+           かなり強引に変更する方法まで解説しますので、ご自身にあった方法をお選びください。（確実な方法を知りたいという方は<a href="bootstrap">一番下へ</a>）
+           <br>
+
+            <div class="index">
+                <h3 id="index_first">目次</h3>
+                <div class="index_list">
+                    <a href="#change" class="list">変更方法のまとめ</a>
+                    <a href="#css" class="list">cssを読み込む順番を変更して上書きする</a>
+                    <a href="#bootstrap" class="list">bootstrapファイルの中身を直接変更する</a>
+                    ・<a href="#sourse" class="list">ソースファイルの種類について</a>
+                    ・<a href="#sourse_change" class="list">ソースファイルを変更する</a>
+                    <a href="#final" class="list list_last">まとめ</a>
+                </div>  
+            </div>   
+                <h2 id="change" class="subject">各種変更方法</h2>
+                最初に、それぞれの変更方法を簡単な解説を添えて紹介します。（具体的な解説は後から説明します）<p></p>
+                １．cssを上書きするというのが無難で、わかりやすい方法です。元のhタグを再現するためのコードを新たに記述するということです。ただ注意してほしいのは、cssを読み込む順番です。これはすでにご存じの方も多いと思いますが、
+                原則として、cssは「後から読み込まれた」もののが前のものを上書きします。このため、せっかく上書き用のcssを書いても、読み込む順番がbootstrapのコードよりも早ければ意味がありません。<br>
+                また、「cssを要素のstyle属性に指定する」という方法でも、cssの上書きが可能です。次のように。
+                <div class="code-container">
+                  <pre class="code-block" id="codeBlock"><code>&lt;h1 style="color:blue;"&gt;文章&lt;/h1&gt;</code></pre>
+                  
+                </div>
+                headタグ内に書かれたcssよりもこちらの方が優先度は高くなり、上書きが可能です。<br>
+                この方法の具体的なcssの記述については<a href="#css" style="color:black;">こちら</a>
+                ちなみに優先度の話をすると、"!important"を使うのが一番優先度が高いです。下記が例です。
+                <div class="code-container">
+                  <pre class="code-block" id="codeBlock"><code>h1{
+  color:red!important;
+}</code></pre>
+
+                </div>
+                読み込む順番や記述場所を縛られるのが面倒だという方はどこに書いてもOKなこちらの方法で行ってください。しかしこちらは強制力が強いためあまり推奨される方法ではないようです。
+                （使われているwebサイトは普通に見ますが）
+                <br>
+                <br>
+                ２．一つ目の方法がbootstrapのcssを上書きすることだったのに対し、二つ目の方法はそもそものbootstrapのコードを消してしまおうというものです。強引でリスクも多いですが、確実性があります。
+                他の方法で修正できない、またはどう上書きしていいかわからないという場合にはこれしかないです。下にどこからどこまでを消せば良いかを書いています。
+                具体的な方法は<a href="#bootstrap" style="color:black">こちら</a>
+                <br>
+                まずは一つ目の方法、それでだめなら二つ目の方法をお試しください。（リスク度外視なら二つ目だけでも良いです）
+                
+                
+                <h2 id="css" class="subject">cssを上書きする</h2>
+                bootstrapコードを上書きするためのcssを書いていきます。これで、元々のhタグを再現できます。
+                上から、h1タグ、h2タグ、h3タグ用のコードです。
+                <div class="code-container">
+                  <pre class="code-block" id="codeBlock-2"><code>h1{
+    font-size: 2.0em;
+    font-weight: bold; 
+    font-family: 'Helvetica', sans-serif;
+    color: black;
+ }</code><button class="copy-2" onclick="copyToClipboard2()"><i class="fa-solid fa-copy" style="color: #ffffff;"></i></button></pre>
+                  
+                 </div>
+                 <div class="code-container">
+                  <pre class="code-block" id="codeBlock-3"><code>h2{
+    font-size:1.515em;
+    font-weight:bold;
+    font-family:'Arial',sans-serif;
+    color:#000000;
+ }</code><button class="copy-3" onclick="copyToClipboard3()"><i class="fa-solid fa-copy" style="color: #ffffff;"></i></button></pre>
+                  
+                 </div>
+                 <div class="code-container">
+                  <pre class="code-block" id="codeBlock-4"><code>h3{
+    font-size:1.17em;
+    font-weight:bold;
+    font-family: 'Helvetica', sans-serif;
+    color:#333;
+ }</code><button class="copy-4" onclick="copyToClipboard4()"><i class="fa-solid fa-copy" style="color: #ffffff;"></i></button></pre>
+                  
+                 </div>
+                 <p></p>
+                ついでに、本文テキスト（pタグ）の行間を直すコードも載せておきます。
+                <div class="code-container">
+                  <pre class="code-block" id="codeBlock-5"><code>p{
+    line-height: normal;
+ }</code><button class="copy-5" onclick="copyToClipboard5()"><i class="fa-solid fa-copy" style="color: #ffffff;"></i></button></pre>
+                  
+                 </div>
+                 
+                <h2 id="bootstrap" class="subject">bootstrapソースコードを直接変更する</h2>
+                
+                <h3 id="sourse" class="min-subject">ソースファイルの種類について</h3>
+                bootstrapのソースコードにはいくつかの種類があり、それぞれ機能が微妙に異なっています。基本的には「bootstrap.css」か「bootstrap.min.css」を利用していると思います。
+                この拡張子".min"とは、これがついていると、コードの機能はそのままに、極限までファイルを軽くしているという意味になります。具体的にはコードの改行などがすべて削除され、空白が一切ない文字で埋め尽くされたファイルになります。
+                そのため、このファイルは非常に読みづらく（というか人間が読むためのファイルではない）、ましてや修正するのは到底無理です。
+                <img src="img\bootstrap.min.css - github1 - Visual Studio Code 2024_01_19 10_24_57.png" class="responsive-image-coment">
+                ↑拡張子".min"がついたbootstrapコード。わけが分からない。<p></p>
+                そのため、修正するコードは「bootstrap.css」にします。<br>
+                下の画像は、「bootstrap.css」の一部分です。
+                <img src="img\PhotoScape X 2024_01_19 17_15_24.png" class="responsive-image">
+                これを見てわかる通り、.minなしのソースファイルはある程度きれいに整列されていて、必要なところだけ削除するのは案外簡単です。<br>
+                今まで他のファイルを使っていましたら、HTMLファイルに読み込ませるlinkタグのほうも「bootstrap.css」に変更します。
+                <h3 id="sourse_change" class="min-subject">ソースファイルを変更する</h3>
+                
+                では、一つ一つ修正手順を画像を交えて説明していきます。
+                <img src="img\bootstrap.css - github1 - Visual Studio Code 2024_01_19 10_35_58.png" class="responsive-image-coment">
+                ファイルを開いたら、最初のほうは関係ないのでスクロールします。するとbodyタグやhタグについての記述があるエリアにたどり着くと思います。<p></p>
+                ここで画像を参考にbodyタグの先頭からpタグの末尾まで削除してください。とりあえずこれで文章用タグについてはすべて元に戻ります。（body内のタグなしで直書きした文章も）
+                <img src="img\PhotoScape X 2024_01_19 10_53_12-down.png" class="responsive-image-start">
+                また、少し面倒ですが、上のように全部削除せずに、コードを読んで必要な部分だけを削除してもいいと思います。<p></p>
+                完了したらhタグなどを実際に書いてみてください。普通のフォントに戻っていると思います。（戻ってない場合は読み込むファイルが間違っている可能性が高いです）
+               
+                
+                
+            <h2 id="final" class="subject">まとめ</h2>
+            ここではhタグだけに特化した修正方法を紹介しましたが、これをもとにすれば他にもbootstrapによる意図しない変化についての修正ができると思います。
+            <p></p>また今回挙げた方法以外にもbootstrapのcssを修正する方法はあります。（外部サイト→<a href="https://getbootstrap.jp/docs/5.3/customize/sass/" style="color:black;">Sass解説</a>）
+            <br>どの方法もリスク、確実性、労力などの面で差があり、どれがいいとは一概には言えませんので、ご自身の用途に合ったものをお選びください。    
+            </div>
+            
+
+
+            <div class="foot">
+              <a class="btn btn-warning" href="#headtitle" role="button">ページトップに戻る</a>
+            </div>
+                   
+            
+
+        
+        <script src="https://kit.fontawesome.com/6956472356.js" crossorigin="anonymous"></script>
+        <script src="jquery-3.7.1.min.js"></script>
+        <script src="js\bootstrap.bundle.min.js"></script>
+        <script src="copy.js"></script>
+    </body>
+</html>
