@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>【VSCode】毎回書くのが面倒なHTMLのテンプレートを省略するための機能を1分で導入する方法</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        
+        <link rel="stylesheet" href="css\bootstrap.css">
+        <link rel="stylesheet" href="stylesheet.css">
+        <style>
+            .boil{
+               /*ボタンタグ */
+                position:absolute;
+                bottom:-35px;
+                left:20%;
+                height:35px;
+                background-color:white ;
+                border:none;
+                width:60%;
+                
+            
+                
+            }
+            
+            .copy_block{
+                position: relative;
+                background-color: rgb(236, 236, 236);
+                
+            }
+            
+        </style>
+    </head>
+    <header>
+        <nav class="navbar navbar-expand-lg bg-body-tertiary  custom-nuvbar" >
+            <div class="container-fluid padd" >
+              <a class="navbar-brand" href="index.html" style="color:white; ">なぶば</a>
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                  <li class="nav-item" >
+                    <a class="nav-link active" aria-current="page" href="past.html" style="color:white; padding-left:47px;">過去の記事</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="profile.html" style="color:white;padding-left:47px;">管理者プロフィール</a>
+                  </li>
+                  
+                    
+                  
+                  
+                  
+                </ul>
+                
+                </div>
+               </div>
+              </nav>
+        </header>
+    <body>
+        <div class="body_index">
+            <div class="titlename" >
+                <h1 id="headtitle">【VSCode】面倒なHTMLのテンプレートを省略するための機能を1分で導入する方法</h1>
+            </div>
+        新しいHTMLを書き始めるとき誰しも一度は「headタグとかhtmlタグとか書くの面倒くさい……」と思ったことがあると思います。<br>
+        今回はそんなお悩みを、おそらくもっとも簡単な方法で最速で、しかし実用性を伴って解決したいと思います。
+        <br>こんなテーマの記事ですので、前置きはこのくらいにして最速で解説していきます。
+        <p></p><p></p>
+        やることはただ一つ。VSCodeの<span class="bold">拡張機能</span>をインストールするだけです。
+        VSCodeの左のメニューから拡張機能をクリックし、検索欄に
+        <span class="copy_block">「<span class="boiler" id="plate">Boilerplate</span>」<button class="boil" onclick="copyToClipboard1()"><img src="img/copybutton.png" style="width:100%;height:auto;"></button></span>と入力して出てくる一番上の拡張機能をインストールしてください。<br><br>
+        <img class="responsive-image" src="img\拡張機能_ HTML Boilerplate - github1 - Visual Studio Code 2024_01_21 18_10_05.png">
+        そしたら新しいhtmlファイルを作り、何も書かれていない状態から「html」と入力すると「html5-boilerplate」と予測変換で出てくると思うのでそれを選択してEnter。
+        <img class="responsive-image" src="img\拡張機能_ HTML Boilerplate - github1 - Visual Studio Code 2024_01_21 18_14_28-down.png">
+        <p></p>……はい。これでおしまいです。あとは必要なtitleや外部cssファイルのurlなどを入力してください。レスポンシブ対応のためのコードも書かれているので、最低限の機能は満たしているといえるでしょう。
+        <br>ちなみに、この中でよく知らないコードがあるって方もいるかもしれませんが、別に消したりする必要はないです。ほとんどの場合悪影響はありません。邪魔だったり不安だったりしたら削除してください。<br>まあここは簡単に導入できることの代償みたいなものです。
+        <p></p>これ以降も新しいHTMLファイルを作ったら同様にこの「html5-boilerplate」を選択すれば簡単にテンプレートが出せます。
+        <p></p><br>さてタイトル通りここまで1分以内にできましたでしょうか。この記事の本題は以上です。
+        ここから先はこのテンプレートの中にある一部一般的ではない記述に関して説明してあるので興味があったらお読みだください。<p></p><br>
+        <hr>
+        <p></p><br>おそらくこれを初めて導入した方はこう思ったのではないでしょうか。<br>
+        「なんか余計なの書いてある」、と。<br>
+        私も思いました。
+        <p></p>上記の通り、結論だけ言えばコメント部分はもちろん、一部見慣れない記述に関してもそのまま放置して問題ありません。ただ気になるという方向けにひとつづつ解説していきます。<p></p>
+
+        ちなみに今回導入した拡張機能では、テンプレートをカスタマイズすることはできないので、それについては他の手段を用いてください。労力はかかるかもしれませんが、その分リターンもあります。 
+        <hr>
+        <img src="img\IE-edge.png" class="responsive-image">
+        まずは上から9行目のこのコードです。「IE-edge」との記述から分かるかもしれませんが、これは昔のブラウザ「Internet Explorer」において、バージョンが変わったときのためのコードです。
+        <p></p>詳しい説明は省きますが、簡潔にこのコードで何が起こるかというと、「表示するInternet Explorerのバージョンが古いときに、互換性が保たれる」、になります。
+        ただ、Internet Explorerは2022年6月16日をもってサポート終了しており、現在は「Microsoft Edge」や「Chrome」といったブラウザが利用されています。
+        <br>そのため、一応利用自体はできますが利用者はほぼいないと思われます。よって必要ないです。<br>
+        最新のブラウザはこの設定に影響は受けないので、このコードはそのままでも消してもどちらでも良いです。
+        <hr>
+        <img src="img\discription.png" class="responsive-image">
+        次に上から11行目のこのコードです。<br>これの一つ上のtitleタグはわかると思いますがこのコードはそのtitleタグに関係しています。<p></p>
+        ブラウザで何かを検索したときに検索結果一覧で、そのページのタイトルが青文字で書かれていると思いますがこれがtitleタグの中身に対応しています。
+        そしてその下の説明文的な文章を書くためのコードが、今挙げているコードです。
+        content属性の中が空白になっているかと思われますが、この中に説明文を書いていきます。
+        <hr>
+        <img src="img\width.png" class="responsive-image">
+        続いて12行目のこのコードです。<br>これはレスポンシブ対応、つまりページの幅や高さが変わっても綺麗に要素を表示するためのコードです。
+        このコードとcssのメディアクエリなどでページをレスポンシブデザインにしていきます。詳しくはレスポンシブデザインをお調べください。
+        <hr>
+        <img src="img\defer.png" class="responsive-image">
+        最後に20行目のこのコードです。<br>
+        scriptタグはJavaScriotのファイルをインポートするタグというのはご存じかと思います。その隣のasyncとdeferはその読み込みの動作自体を制御します。<br>
+        読み込むタイミングを意図的に変えることで、JavaScriptが想定通りの挙動をするようになるということです。<P></P>
+        この二つのコードはふつうはどちらかしか書かれず、どちらも書くとasyncのほうが優先され、deferは無視されます。<P></P>
+        もっと具体的なことについては話が長くなってしまうためここには書きませんが、図付きで詳しく解説しているサイトを見つけたのでご参考ください。→<a href="https://takayamato.com/defer_async/" style="color:black;">【徹底解説】scriptタグにdeferやasyncをつけるとどうなる?</a>
+        
+        
+        
+
+        
+        
+
+        </div>
+        <div class="foot">
+          <a class="btn btn-warning" href="#headtitle" role="button">ページトップに戻る</a>
+        </div>
+
+
+        <!--[if lt IE 7]>
+            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+        <script src="https://kit.fontawesome.com/6956472356.js" crossorigin="anonymous"></script>
+        <script src="jquery-3.7.1.min.js" ></script>
+        <script src="js\bootstrap.bundle.min.js"></script>
+        <script>
+            function copyToClipboard1() {
+                var codeBlock = document.getElementById('plate');
+                var textarea = document.createElement('textarea');
+                textarea.value = codeBlock.innerText;
+                textarea.style.position = 'fixed';
+                textarea.style.opacity = 0;
+                document.body.appendChild(textarea);
+                textarea.select();
+                document.execCommand('copy');
+                document.body.removeChild(textarea);
+                var copyButton = document.querySelector('button.boil');
+                copyButton.innerHTML = '<i class="fa-solid fa-check fa-bounce"></i>';
+                copyButton.style.opacity="1";
+                setTimeout(function() {
+                  copyButton.innerHTML = '<i class="fa-solid fa-check"></i>';
+                  copyButton.style.transition='opacity 1.5s ease';
+                  setTimeout(function(){
+                    copyButton.style.opacity="0";
+                    setTimeout(function(){
+                      copyButton.innerHTML='<img src="img/copybutton.png" style="width:100%;height:auto;">'
+                      copyButton.style.opacity="1";
+                      copyButton.style.transition='opacity 0s ease';
+                    },1500);
+                },0);
+                }, 900); 
+              }
+        </script>
+    </body>
+</html>
