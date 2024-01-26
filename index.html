@@ -108,12 +108,12 @@
    <iframe class="sideframe" src="sidepast.html" width="100%" height="1000px"></iframe>
   </div>
 </div>
-<button onclick="buttonClick()" >ボタン</button>
+
 <script src="jquery-3.7.1.min.js"></script>
 <script src="js\bootstrap.bundle.min.js"></script>
 <script src="notiframe.js"></script>
 <script>
-           function buttonClick(){
+             document.addEventListener('DOMContentLoaded',function(){
               var dataArray=['index','second','third','forth'];
               var containerClass = document.querySelector('.large-container');
               var parentWindow = window;
@@ -140,7 +140,7 @@
                       }
                   }
               });
-            } 
+            } );
         
         
     
