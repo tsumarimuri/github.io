@@ -342,6 +342,9 @@ body{
        background-color: rgb(236, 236, 236);
        
    }
+   header{
+    height:56px!important;
+   }
   
   
 
