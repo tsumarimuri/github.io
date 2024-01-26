@@ -7,60 +7,22 @@
         <title>【VSCode】毎回書くのが面倒なHTMLのテンプレートを省略するための機能を1分で導入する方法</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        
+        <link rel="icon" href="img\favicon.ico">
         <link rel="stylesheet" href="css\bootstrap.css">
         <link rel="stylesheet" href="stylesheet.css">
-        <style>
-            .boil{
-               /*ボタンタグ */
-                position:absolute;
-                bottom:-35px;
-                left:20%;
-                height:35px;
-                background-color:white ;
-                border:none;
-                width:60%;
-                
-            
-                
-            }
-            
-            .copy_block{
-                position: relative;
-                background-color: rgb(236, 236, 236);
-                
-            }
-            
-        </style>
+        <link rel="apple-touch-icon" sizes="180x180" href="img\appletouch.png">
+        
     </head>
-    <header>
-        <nav class="navbar navbar-expand-lg bg-body-tertiary  custom-nuvbar" >
-            <div class="container-fluid padd" >
-              <a class="navbar-brand" href="index.html" style="color:white; ">なぶば</a>
-              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-              </button>
-              <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                  <li class="nav-item" >
-                    <a class="nav-link active" aria-current="page" href="past.html" style="color:white; padding-left:47px;">過去の記事</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="profile.html" style="color:white;padding-left:47px;">管理者プロフィール</a>
-                  </li>
-                  
-                    
-                  
-                  
-                  
-                </ul>
-                
-                </div>
-               </div>
-              </nav>
-        </header>
+    
     <body>
+      <header>
+        <iframe src="navigation.html" class="navigation"></iframe>
+      </header>  
+        <div class="large-container">
+
+        <div class="body-box">
         <div class="body_index">
+        <div class="body_main">
             <div class="titlename" >
                 <h1 id="headtitle">【VSCode】面倒なHTMLのテンプレートを省略するための機能を1分で導入する方法</h1>
             </div>
@@ -111,17 +73,19 @@
         この二つのコードはふつうはどちらかしか書かれず、どちらも書くとasyncのほうが優先され、deferは無視されます。<P></P>
         もっと具体的なことについては話が長くなってしまうためここには書きませんが、図付きで詳しく解説しているサイトを見つけたのでご参考ください。→<a href="https://takayamato.com/defer_async/" style="color:black;">【徹底解説】scriptタグにdeferやasyncをつけるとどうなる?</a>
         
-        
-        
-
-        
-        
-
         </div>
+        </div>
+        
+        
         <div class="foot">
           <a class="btn btn-warning" href="#headtitle" role="button">ページトップに戻る</a>
         </div>
+        </div>
+        <div class="sidepast">
+          <iframe src="sidepast.html" width="100%" height="1000px"></iframe>
+        </div>
 
+      </div>
 
         <!--[if lt IE 7]>
             <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>

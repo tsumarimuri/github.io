@@ -8,35 +8,19 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="css\bootstrap.css">
         <link rel="stylesheet" href="stylesheet.css">
+        <link rel="icon" href="img\favicon.ico">
+        <link rel="apple-touch-icon" sizes="180x180" href="img\appletouch.png">
     </head>
-    <header>
-      <nav class="navbar navbar-expand-lg bg-body-tertiary  custom-nuvbar" >
-          <div class="container-fluid padd" >
-            <a class="navbar-brand" href="index.html" style="color:white; ">なぶば</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-              <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-              <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                <li class="nav-item" >
-                  <a class="nav-link active" aria-current="page" href="past.html" style="color:white; padding-left:47px;">過去の記事</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="profile.html" style="color:white;padding-left:47px;">管理者プロフィール</a>
-                </li>
-                
-                  
-                
-                
-                
-              </ul>
-              
-              </div>
-             </div>
-            </nav>
-      </header>
+
+    
     <body>
+      <header>
+        <iframe src="navigation.html" class="navigation"></iframe>
+      </header>  
+       <div class="large-container">
+        <div class="body-box">
         <div class="body_index">
+        <div class="body_main">
             <div class="titlename">
                 <h1 id="headtitle">bootstrapを使用するとhタグのフォントが勝手に変わる問題の解決法</h1>
             </div>
@@ -164,13 +148,16 @@
             <p></p>また今回挙げた方法以外にもbootstrapのcssを修正する方法はあります。（外部サイト→<a href="https://getbootstrap.jp/docs/5.3/customize/sass/" style="color:black;">Sass解説</a>）
             <br>どの方法もリスク、確実性、労力などの面で差があり、どれがいいとは一概には言えませんので、ご自身の用途に合ったものをお選びください。    
             </div>
-            
-
-
+            </div>
             <div class="foot">
               <a class="btn btn-warning" href="#headtitle" role="button">ページトップに戻る</a>
             </div>
-                   
+           
+           </div>
+           <div class="sidepast">
+            <iframe src="sidepast.html" width="100%" height="1000px"></iframe>
+           </div>
+          </div>  
             
 
         
