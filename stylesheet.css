@@ -40,6 +40,20 @@
   background-color: rgb(234, 255, 254);
   z-index: -100;
 }
+@media screen and (max-width:991px){
+   .large-container{
+    flex-direction: column;
+    gap:0vh!important;
+   }
+   .body-box{
+    width:100%!important;
+   }
+   .sidepast{
+    width:80%!important;
+   }
+   
+   
+}
 #headtitle{
   margin-top:0px;
   padding-top:21.44px;
@@ -60,13 +74,7 @@
 .list:hover {
     text-decoration: underline;
 }
-@media only screen and (max-width:480px){
-    .body_index{
-        width:90%;
-        line-height:35px;
-    }
-    
-}
+
 .responsive-image{
     width:100%;
     height:auto;
@@ -334,6 +342,6 @@ body{
        background-color: rgb(236, 236, 236);
        
    }
-     
+  
   
 
