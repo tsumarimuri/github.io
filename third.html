@@ -122,22 +122,22 @@
               }
         </script>
         <script>
-            document.addEventListener('DOMContentLoaded',function(){
+          document.addEventListener('DOMContentLoaded',function(){
       
-              var containerClass = document.querySelector('.large-container');
-              var containerId=containerClass.id;
-              var judgeId=containerId+'1';       
-              var iframe = document.querySelector('.sideframe');
-        　　　 var iframeDocument = iframe.contentDocument;
-              var elementsInIframe = iframeDocument.querySelectorAll('.tag');
-              
-   　　　　　　 elementsInIframe.forEach(function(element) {
-        　　　　var tagId=element.id;
-                if(tagId==judgeId){
-                       element.style.display='none'; 
-                }
-               });
+            var containerClass = document.querySelector('.large-container');
+            var containerId=containerClass.id;
+            var judgeId=containerId+'1';       
+            var iframe = document.querySelector('.sideframe');
+            var iframeDocument = iframe.contentDocument;
+            var elementsInIframe = iframeDocument.querySelectorAll('.tag');
+            
+            elementsInIframe.forEach(function(element) {
+            var tagId=element.id;
+              if(tagId==judgeId){
+                     element.style.display='none'; 
+              }
              });
+           });
         </script>
     </body>
 </html>
