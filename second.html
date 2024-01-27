@@ -171,11 +171,12 @@
             var elementsInIframe = iframeDocument.querySelectorAll('.tag');
             
             elementsInIframe.forEach(function(element) {
-            var tagId=element.id;
-              if(tagId==judgeId){
-                     element.style.display='none'; 
-              }
+            let tagId=element.id;
+            if(tagId==judgeId){
+                   element.style.display='none';
+                   break;
              });
+              
            });
         </script>
         <script src="https://kit.fontawesome.com/6956472356.js" crossorigin="anonymous"></script>
