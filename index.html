@@ -114,51 +114,24 @@
 <script src="notiframe.js"></script>
 <script>
              document.addEventListener('DOMContentLoaded',function(){
-              var dataArray=['index','second','third','forth'];
+      
               var containerClass = document.querySelector('.large-container');
-              var parentWindow = window;
-
-              // iframeが存在するか確認
-              var iframe = containerClass.querySelector('.sideframe');
-        　　　var iframeDocument = iframe.contentDocument;
-
-   
-    　　　　　　var elementsInIframe = iframeDocument.querySelectorAll('.tag');
-
+              var containerId=containerClass.id;
+              var judgeId=containerId+'1';       
+              var iframe = document.querySelector('.sideframe');
+        　　　 var iframeDocument = iframe.contentDocument;
+              var elementsInIframe = iframeDocument.querySelectorAll('.tag');
+              
    　　　　　　 elementsInIframe.forEach(function(element) {
-        　　　　console.log(element.textContent);
-          });
-                var iframeWindow = iframe.contentWindow;
-
-  
-                var elementsInIframe = iframeWindow.document.querySelectorAll('.your-class-name');
-
-                elementsInIframe.forEach(function(element) {
-       
-                  console.log(element.textContent);
-         });
-              if (iframe) {
-                  // iframe内のDocumentにアクセス
-                  var iframeDocument = iframe.contentDocument || iframe.contentWindow.document;
-                  
-                  // iframe内のDocumentのWindowオブジェクトを取得
-                  parentWindow = iframe.contentWindow || parentWindow;
-              }
-          
-              var containerId = containerClass.id;
-          
-              dataArray.forEach(function (element) {
-                  if (element == containerId) {
-                      var neoId = '#' + containerId + '1';
-                      var Remove = parentWindow.document.querySelector(neoId);
-          
-                      if (Remove) {
-                          Remove.style.display = 'none';
-                      }
-                  }
-              });
-            } );
+        　　　　var tagId=element.id;
+                if(tagId==judgeId){
+                       element.style.display='none'; 
+                }
+               });
+             });
+                
         
+               
         
     
     window.addEventListener('DOMContentLoaded', function () {
