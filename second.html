@@ -17,7 +17,7 @@
       <header>
         <iframe src="navigation.html" class="navigation"></iframe>
       </header>  
-       <div class="large-container">
+       <div class="large-container"　id="second">
         <div class="body-box">
         <div class="body_index">
         <div class="body_main">
@@ -165,5 +165,23 @@
         <script src="jquery-3.7.1.min.js"></script>
         <script src="js\bootstrap.bundle.min.js"></script>
         <script src="copy.js"></script>
+        <script>
+            document.addEventListener('DOMContentLoaded',function(){
+      
+              var containerClass = document.querySelector('.large-container');
+              var containerId=containerClass.id;
+              var judgeId=containerId+'1';       
+              var iframe = document.querySelector('.sideframe');
+        　　　 var iframeDocument = iframe.contentDocument;
+              var elementsInIframe = iframeDocument.querySelectorAll('.tag');
+              
+   　　　　　　 elementsInIframe.forEach(function(element) {
+        　　　　var tagId=element.id;
+                if(tagId==judgeId){
+                       element.style.display='none'; 
+                }
+               });
+             });
+        </script>
     </body>
 </html>
